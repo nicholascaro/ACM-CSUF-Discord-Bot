@@ -59,32 +59,36 @@ class Roles(Cog):
 
     @Cog.listener()
     async def on_raw_reaction_add(self, payload):
+
         # YOUR CODE GOES HERE
-<<<<<<< HEAD
-=======
-        pass
-    
->>>>>>> e69a1eb375a3a12730628cb27a64f58a88211e85
+<< << << < HEAD
+<< << << < HEAD
+== == == =
+== == == =
+>>>>>> > e69a1eb375a3a12730628cb27a64f58a88211e85
+pass
 
-        devM = discord.utils.get(
-            payload.member.guild.roles, id=916198780754346017)
-        algoM = discord.utils.get(
-            payload.member.guild.roles, id=916198780754346018)
-        createM = discord.utils.get(
-            payload.member.guild.roles, id=916198780754346019)
+>>>>>> > e69a1eb375a3a12730628cb27a64f58a88211e85
 
-        emojiID = {'dev': 930209176431505509,
-                   'algo': 930209120907296799, 'create': 930209148543578213}
+devM = discord.utils.get(
+    payload.member.guild.roles, id=916198780754346017)
+algoM = discord.utils.get(
+    payload.member.guild.roles, id=916198780754346018)
+createM = discord.utils.get(
+    payload.member.guild.roles, id=916198780754346019)
 
-        role_message_id = 932456799607599144
+emojiID = {'dev': 930209176431505509,
+            'algo': 930209120907296799, 'create': 930209148543578213}
 
-        if payload.message_id == role_message_id:
-            if payload.emoji_id == emojiID['dev']:
-                await payload.member.add_roles(devM)
-            elif payload.emoji_id == emojiID['algo']:
-                await payload.member.add_roles(algoM)
-            elif payload.emoji_id == emojiID['create']:
-                await payload.member.add_roles(createM)
+ role_message_id = 932456799607599144
+
+  if payload.message_id == role_message_id:
+       if payload.emoji_id == emojiID['dev']:
+            await payload.member.add_roles(devM)
+        elif payload.emoji_id == emojiID['algo']:
+            await payload.member.add_roles(algoM)
+        elif payload.emoji_id == emojiID['create']:
+            await payload.member.add_roles(createM)
 
 
 def setup(bot: Bot):
