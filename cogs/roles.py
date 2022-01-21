@@ -79,9 +79,28 @@ class Roles(Cog):
         # 6)Similarly to the 'on_raw_reaction_add' event, create if statements for each of the three roles and use the 'remove_roles' function
         #   to remove the respective role
 
-        # @Cog.listener()
-        # async def on_raw_reaction_remove(self, payload):
-        #     #YOUR CODE HERE---------------------------------
+    @Cog.listener()
+    async def on_raw_reaction_remove(self, payload):
+        curr_guild = await self.bot.fetch_guild(payload.guild_id)
+        member = await curr_guild.fetch_member(payload.user_id)
+        message_id = 933135629624156191
+        dev_role = curr_guild.get_role(int(os.environ.get('DEV')))
+        algo_role = curr_guild.get_role(int(os.environ.get('ALGO')))
+        create_role = curr_guild.get_role(int(os.environ.get('CREATE')))
+        emoji = payload.emoji.id
+        if payload.message_id == message_id:
+            if emoji == int(os.environ.get('DEVEMOJI')):
+                await member.remove_roles(dev_role)
+                print(f"Dev Role removed from -> {member.display_name}")
+        # token is for the algo emoji ID
+            elif emoji == int(os.environ.get('ALGOEMOJI')):
+                await member.remove_roles(algo_role)
+                print(f"Algo Role removed from -> {member.display_name}")
+            # token is for the create emoji ID
+            elif emoji == int(os.environ.get('CREATEEMOJI')):
+                await member.remove_roles(create_role)
+                print(f"Create Role removed from -> {member.display_name}")
+        # YOUR CODE HERE---------------------------------
 
 
 def setup(bot: Bot):
